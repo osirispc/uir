@@ -409,8 +409,8 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" tag="22" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmL-he-wod">
-                                                <rect key="frame" x="15" y="1937" width="36" height="30"/>
-                                                <state key="normal" title="Clear"/>
+                                                <rect key="frame" x="15" y="1937" width="30" height="30"/>
+                                                <state key="normal" title="Exit"/>
                                                 <connections>
                                                     <action selector="clear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dhy-d4-HsV"/>
                                                 </connections>

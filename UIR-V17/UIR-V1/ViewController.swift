@@ -861,7 +861,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     @IBAction func clear(_ sender: Any) {
-        
+        exit(0)
     }
 
 }
