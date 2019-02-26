@@ -161,7 +161,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         "WDC"]
     let site = [
         "",
-        "Chaucer",
         "Locust",
         "Lane Rd",
         "1200 Resource",
