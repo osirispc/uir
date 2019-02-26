@@ -412,7 +412,7 @@
                                                 <rect key="frame" x="15" y="1937" width="36" height="30"/>
                                                 <state key="normal" title="Clear"/>
                                                 <connections>
-                                                    <action selector="export:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q40-MQ-ZHt"/>
+                                                    <action selector="clear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dhy-d4-HsV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="24" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgX-qX-4wI">
