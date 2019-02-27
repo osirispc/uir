@@ -106,6 +106,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var txtDatePicker: UITextField!
     @IBOutlet weak var staffNotificationTextField: UITextField!
     @IBOutlet weak var typeOfIncidentTextField: UITextField!
+    @IBOutlet weak var investigatedBy: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var contributingFactorsTextField: UITextView!
     @IBOutlet weak var responseTextField: UITextView!
@@ -758,10 +759,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
             
         
-            var csvText = "Individual Name, Site, County, Time of Incident, Staff Notification, Type of Incident, Description of Incident, Cause & Contributing Factors, What you did, NOC, NOC Time, MOC, MOC Time, DOC, DOC Time, County/SA, County/SA Time, Guardian, Guardian Time, MUI Line, MUI Line Time\n"
+            var csvText = "Individual Name, Site, County, Time of Incident, Staff Notification, Type of Incident, Investigated By, Description of Incident, Cause & Contributing Factors, What you did, NOC, NOC Time, MOC, MOC Time, DOC, DOC Time, County/SA, County/SA Time, Guardian, Guardian Time, MUI Line, MUI Line Time\n"
             
             for _ in taskArr {
-                let newLine = "\(indName.text!), \(siteTextField.text!), \(countyTextField.text!), \(txtDatePicker.text!), \(staffNotificationTextField.text!), \(typeOfIncidentTextField.text!),\(descriptionTextView.text!), \(contributingFactorsTextField.text!), \(responseTextField.text!), \(nocTextField.text!), \(nocTime.text!), \(mocTextField.text!), \(mocTime.text!),\(docTextField.text!), \(docTime.text!), \(saTextField.text!), \(saTime.text!), \(guardianTextField.text!), \(gaTime.text!), \(muiLineTextField.text!), \(muiTime.text!) \n"
+                let newLine = "\(indName.text!), \(siteTextField.text!), \(countyTextField.text!), \(txtDatePicker.text!), \(staffNotificationTextField.text!), \(typeOfIncidentTextField.text!), \(investigatedBy.text!), \(descriptionTextView.text!), \(contributingFactorsTextField.text!), \(responseTextField.text!), \(nocTextField.text!), \(nocTime.text!), \(mocTextField.text!), \(mocTime.text!),\(docTextField.text!), \(docTime.text!), \(saTextField.text!), \(saTime.text!), \(guardianTextField.text!), \(gaTime.text!), \(muiLineTextField.text!), \(muiTime.text!) \n"
                 csvText.append(contentsOf: newLine)
                 
             }
@@ -786,7 +787,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             mail.setSubject("UIR - \(indName.text!)")
             mail.setToRecipients(["osirisortiz@msn.com", "osiris.ortiz@koinoniahomes.org"])
-            mail.setMessageBody("Individual Name: \(indName.text!)\n\nSite: \(siteTextField.text!)\n\nCounty: \(countyTextField.text!)\n\nTime of Incident: \(txtDatePicker.text!)\n\nStaff Notification: \(staffNotificationTextField.text!)\n\nType of Incident: \(typeOfIncidentTextField.text!)\n\nBrief Description of Incident: This UIR was investigated by \(descriptionTextView.text!)\n\n\nCause and Contributing Factors: \(contributingFactorsTextField.text!)\n\n\nWhat you/staff did immediately to protect the individuals: \(responseTextField.text!)\n\n\nNotifications (name and time):\n\nNOC: \(nocTextField.text!) \(nocTime.text!)\n\nMOC: \(mocTextField.text!) \(mocTime.text!)\n\nDOC: \(docTextField.text!) \(docTime.text!)\n\nCounty Liason/SA: \(saTextField.text!)\(saTime.text!)\n\nGuradian: \(guardianTextField.text!)\(gaTime.text!)\n\nMUI Line: \(muiLineTextField.text!) \(muiTime.text!)\n", isHTML: false)
+            mail.setMessageBody("Individual Name: \(indName.text!)\n\nSite: \(siteTextField.text!)\n\nCounty: \(countyTextField.text!)\n\nTime of Incident: \(txtDatePicker.text!)\n\nStaff Notification: \(staffNotificationTextField.text!)\n\nType of Incident: \(typeOfIncidentTextField.text!)\n\nBrief Description of Incident: This UIR was investigated by \(investigatedBy.text!). \(descriptionTextView.text!)\n\n\nCause and Contributing Factors: \(contributingFactorsTextField.text!)\n\n\nWhat you/staff did immediately to protect the individuals: \(responseTextField.text!)\n\n\nNotifications (name and time):\n\nNOC: \(nocTextField.text!) \(nocTime.text!)\n\nMOC: \(mocTextField.text!) \(mocTime.text!)\n\nDOC: \(docTextField.text!) \(docTime.text!)\n\nCounty Liason/SA: \(saTextField.text!)\(saTime.text!)\n\nGuradian: \(guardianTextField.text!)\(gaTime.text!)\n\nMUI Line: \(muiLineTextField.text!) \(muiTime.text!)\n", isHTML: false)
           
             mail.addAttachmentData(NSData(contentsOf: path!)! as Data,  mimeType: "text/csv", fileName: "uir.csv")
             
