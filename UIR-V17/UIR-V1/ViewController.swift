@@ -9,9 +9,6 @@
 import UIKit
 import MessageUI
 
-
-
-
 extension UIViewController {
     
     func HideKeyboard() {
@@ -751,9 +748,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             
         }
-    
-    
-    
+
     //Send Email
     
     @IBAction func send(_ sender: Any){
@@ -777,18 +772,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 //let vc = UIActivityViewController(activityItems: [path!], applicationActivities: [])
                 
                 //present(vc, animated: true, completion: nil)
-                
-                
-                
-                
+
             } catch {
                 print("Failed to create file")
                 print("\(error)")
             }
             print(path ?? "not found")
-            
-            
-        
         
         if (MFMailComposeViewController.canSendMail()) {
             
@@ -799,14 +788,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             mail.setToRecipients(["osirisortiz@msn.com", "osiris.ortiz@koinoniahomes.org"])
             mail.setMessageBody("Individual Name: \(indName.text!)\n\nSite: \(siteTextField.text!)\n\nCounty: \(countyTextField.text!)\n\nTime of Incident: \(txtDatePicker.text!)\n\nStaff Notification: \(staffNotificationTextField.text!)\n\nType of Incident: \(typeOfIncidentTextField.text!)\n\nBrief Description of Incident: This UIR was investigated by \(descriptionTextView.text!)\n\n\nCause and Contributing Factors: \(contributingFactorsTextField.text!)\n\n\nWhat you/staff did immediately to protect the individuals: \(responseTextField.text!)\n\n\nNotifications (name and time):\n\nNOC: \(nocTextField.text!) \(nocTime.text!)\n\nMOC: \(mocTextField.text!) \(mocTime.text!)\n\nDOC: \(docTextField.text!) \(docTime.text!)\n\nCounty Liason/SA: \(saTextField.text!)\(saTime.text!)\n\nGuradian: \(guardianTextField.text!)\(gaTime.text!)\n\nMUI Line: \(muiLineTextField.text!) \(muiTime.text!)\n", isHTML: false)
           
-            
             mail.addAttachmentData(NSData(contentsOf: path!)! as Data,  mimeType: "text/csv", fileName: "uir.csv")
             
-            
                 self.present(mail, animated: true, completion: nil)
-                
 
-            
         } else {
             print("Email is not configured in settings app or we are not able to send an email")
         }
@@ -838,10 +823,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
         }
     
-    
     // Read write to file
-    
-    
+
     class ReadWriteText {
         
         var DocumentDirURL:URL {
@@ -875,12 +858,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             return readString
         }
     }
-
     
     
-   
-    
-
+    @IBAction func clear(_ sender: Any) {
+        exit(0)
+    }
 
 }
 
