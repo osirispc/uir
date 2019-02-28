@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4009647622020F5D001342C8 /* UIR revised Template_.docx in Resources */ = {isa = PBXBuildFile; fileRef = 4009647522020F5D001342C8 /* UIR revised Template_.docx */; };
 		408DBA4B220B76F300AA7976 /* UIR .csv in Resources */ = {isa = PBXBuildFile; fileRef = 408DBA4A220B76F300AA7976 /* UIR .csv */; };
+		40ECCC7122286FE00010D308 /* koin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40ECCC7022286FE00010D308 /* koin.jpg */; };
 		84BC18B121B71CFE00B87835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC18B021B71CFE00B87835 /* AppDelegate.swift */; };
 		84BC18B321B71CFE00B87835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC18B221B71CFE00B87835 /* ViewController.swift */; };
 		84BC18B621B71CFE00B87835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BC18B421B71CFE00B87835 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		4009647522020F5D001342C8 /* UIR revised Template_.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UIR revised Template_.docx"; sourceTree = "<group>"; };
 		408DBA4A220B76F300AA7976 /* UIR .csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIR .csv"; sourceTree = "<group>"; };
+		40ECCC7022286FE00010D308 /* koin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = koin.jpg; sourceTree = "<group>"; };
 		84BC18AD21B71CFE00B87835 /* UIR-V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIR-V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BC18B021B71CFE00B87835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BC18B221B71CFE00B87835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				408DBA4A220B76F300AA7976 /* UIR .csv */,
+				40ECCC7022286FE00010D308 /* koin.jpg */,
 				4009647522020F5D001342C8 /* UIR revised Template_.docx */,
 				84BC18B021B71CFE00B87835 /* AppDelegate.swift */,
 				84BC18B221B71CFE00B87835 /* ViewController.swift */,
@@ -135,6 +138,7 @@
 				84BC18BE21B71CFE00B87835 /* LaunchScreen.storyboard in Resources */,
 				84BC18BB21B71CFE00B87835 /* Assets.xcassets in Resources */,
 				84BC18B621B71CFE00B87835 /* Main.storyboard in Resources */,
+				40ECCC7122286FE00010D308 /* koin.jpg in Resources */,
 				4009647622020F5D001342C8 /* UIR revised Template_.docx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

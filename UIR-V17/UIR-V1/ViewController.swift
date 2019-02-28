@@ -699,7 +699,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @objc func donedatePicker7(){
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy h:mm a"
+        formatter.dateFormat = "MM/dd/yyyy  h:mm a"
         
         
         muiTime.text = formatter.string(from: datePicker7.date)
@@ -785,9 +785,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             
+            
             mail.setSubject("UIR - \(indName.text!)")
             mail.setToRecipients(["osirisortiz@msn.com", "osiris.ortiz@koinoniahomes.org"])
-            mail.setMessageBody("<h2>Koinonia Homes UIR Report</h2><br><b>Individual Name:</b> \(indName.text!)\n\n<br><b>Site:</b> \(siteTextField.text!)\n\n<br><b>County:</b> \(countyTextField.text!)\n\n<br><b>Time of Incident:</b> \(txtDatePicker.text!)\n\n<br><b>Staff Notification:</b> \(staffNotificationTextField.text!)\n\n<br><b>Type of Incident:</b>\(typeOfIncidentTextField.text!)\n\n<br><br><b>Brief Description of Incident: </b><br><p>This UIR was investigated by \(investigatedBy.text!). \(descriptionTextView.text!)</p>\n\n\n<br><br><b>Cause and Contributing Factors: </b><p>\(contributingFactorsTextField.text!)\n\n\n<br><br><b>What you/staff did immediately to protect the individuals:</b><p>\(responseTextField.text!)</p>\n\n\n<br><br><b>Notifications (name and time):</b><br>\n\n<b<NOC:</b>\(nocTextField.text!) \(nocTime.text!)<br><b>\n\nMOC: </b>\(mocTextField.text!) \(mocTime.text!)\n\n<br><b>DOC: </b>\(docTextField.text!) \(docTime.text!)\n\n<br><b>County Liason/SA:</b> \(saTextField.text!)\(saTime.text!)\n\n<br><b>Guradian: </b>\(guardianTextField.text!)\(gaTime.text!)\n\n<br><b>MUI Line:</b> \(muiLineTextField.text!) \(muiTime.text!)\n", isHTML: true)
+            mail.setMessageBody("<h2>Koinonia Homes UIR Report</h2><br><b>Individual Name:</b> \(indName.text!)\n\n<br><b>Site:</b> \(siteTextField.text!)\n\n<br><b>County:</b> \(countyTextField.text!)\n\n<br><b>Time of Incident:</b> \(txtDatePicker.text!)\n\n<br><b>Staff Notification:</b> \(staffNotificationTextField.text!)\n\n<br><b>Type of Incident:</b> \(typeOfIncidentTextField.text!)\n\n<br><br><h3>Brief Description of Incident: </h3><p>This UIR was investigated by \(investigatedBy.text!). \(descriptionTextView.text!)</p>\n\n<br><br><h3>Cause and Contributing Factors: </h3><p>\(contributingFactorsTextField.text!)\n\n<br><br><h3>What you/staff did immediately to protect the individuals:</h3><p>\(responseTextField.text!)</p>\n\n<br><br><div><h3>Notifications (name and time):</h3><br>\n\n<b>NOC:</b> \(nocTextField.text!) \(nocTime.text!)<br><b>\n\nMOC: </b>\(mocTextField.text!) \(mocTime.text!)\n\n<br><b>DOC: </b>\(docTextField.text!) \(docTime.text!)\n\n<br><b>County Liason/SA:</b> \(saTextField.text!) \(saTime.text!)\n\n<br><b>Guradian: </b>\(guardianTextField.text!) \(gaTime.text!)\n\n<br><b>MUI Line:</b> \(muiLineTextField.text!) \(muiTime.text!)\n</div>", isHTML: true)
           
             mail.addAttachmentData(NSData(contentsOf: path!)! as Data,  mimeType: "text/csv", fileName: "uir.csv")
             
