@@ -293,9 +293,26 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
         
-        
-        view.frame.origin.y = -keyboardRect.height
+        if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            
+            view.frame.origin.y = -keyboardRect.height
+        } else {
+            view.frame.origin.y = 0
+        }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // Stop listening for keyboard hide/show events.
     deinit {
