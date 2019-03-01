@@ -280,26 +280,45 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             "WDC Campus Support 216-285-9851 or 216-285-9852"
             ]
     
-    
     //Declare variables for loop to create CSV file
     
     var taskArr = [uirTask]()
     var task: uirTask!
    
-    //Main
     
+    
+    
+    // This function moves the keyboard up and down  so you can enter text with out view obstruction.
+    @objc func keyboardWillChange(notification: Notification) {
+        
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        
+        
+        view.frame.origin.y = -keyboardRect.height
+    }
+    
+    // Stop listening for keyboard hide/show events.
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
+    }
+    
+    // Main View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.HideKeyboard()
-        
         self.descriptionTextView.delegate = self
         self.contributingFactorsTextField.delegate = self
         self.responseTextField.delegate = self
         
         
+        // Listen for keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        
+      
         
         
         picker1.dataSource = self
@@ -385,25 +404,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
  //Export Button
     }
-    
     @IBAction func export(_ sender: Any) {
         creatCSV()
-        
     }
-    
     //This will add the Date Picker to capture the date and time.
-    
     //DatePicker 1
-    
-    
     func showDatePicker(){
-        
         //Format the date here.
         datePicker.datePickerMode = .dateAndTime
-        
-        
-        
-        
         //Set up Toolbar here.
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
@@ -414,73 +422,46 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
         
-        
         toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
-
             txtDatePicker.inputAccessoryView = toolbar
             txtDatePicker.inputView = datePicker
-
         }
     
     @objc func donedatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy h:mm a"
-        
         txtDatePicker.text = formatter.string(from: datePicker.date)
-        
         self.view.endEditing(true)
     }
-    
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
-        
     }
     
-    
-    
     func showDatePicker2(){
-        
         //Format the date here.
-        
         datePicker2.datePickerMode = .dateAndTime
-
         //Set up Toolbar here.
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker2));
-        
+    
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil);
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker2));
         
-        
         toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
-        
-
-         
          nocTime.inputAccessoryView = toolbar
          nocTime.inputView = datePicker2
-         
-        
-        
     }
-    
     @objc func donedatePicker2(){
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy h:mm a"
-        
-       
-       nocTime.text = formatter.string(from: datePicker2.date)
-
-        
+        nocTime.text = formatter.string(from: datePicker2.date)
         self.view.endEditing(true)
     }
-    
-    
+
     @objc func cancelDatePicker2(){
         self.view.endEditing(true)
-        
     }
     
     func showDatePicker3(){
@@ -713,6 +694,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.view.endEditing(true)
         
     }
+    
     
     
         //Create CSV file
